@@ -79,7 +79,7 @@ local   all         postgres                          ident  <%= "sameuser" if @
 # TYPE  DATABASE    USER        CIDR-ADDRESS          METHOD
 
 # "local" is for Unix domain socket connections only
-local   all         all                               ident <%= "sameuser" if @postgres_default_version == "8.1" %>
+local   all         all                               trust
 # IPv4 local connections:
 host    all         postgres    <%= @ip_mask_deny_postgres_user + "\t" %>      reject
 host    all         all         <%= @ip_mask_allow_all_users + "\t" %>      md5
